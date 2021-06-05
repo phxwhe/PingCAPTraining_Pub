@@ -15,6 +15,10 @@ sorted-kv-dir = "/home/ubuntu/pingcap_training/coursefile/sorted-kv-dir"
 data-source-dir = "/home/ubuntu/pingcap_training/coursefile/data"
 no-schema = true
 
+# Configures the wildcard rule. By default, all tables in the mysql, sys, INFORMATION_SCHEMA, PERFORMANCE_SCHEMA, METRICS_SCHEMA, and INSPECTION_SCHEMA system databases are filtered.
+# If this item is not configured, the "cannot find schema" error occurs when system tables are imported.
+filter = ['*.*', '!mysql.*', '!sys.*', '!INFORMATION_SCHEMA.*', '!PERFORMANCE_SCHEMA.*', '!METRICS_SCHEMA.*', '!INSPECTION_SCHEMA.*']
+
 [mydumper.csv]
 # Separator between fields, should be an ASCII character.
 separator = ','
@@ -34,9 +38,6 @@ backslash-escape = true
 # If a line ends with a separator, remove it.
 trim-last-separator = false
 
-# Configures the wildcard rule. By default, all tables in the mysql, sys, INFORMATION_SCHEMA, PERFORMANCE_SCHEMA, METRICS_SCHEMA, and INSPECTION_SCHEMA system databases are filtered.
-# If this item is not configured, the "cannot find schema" error occurs when system tables are imported.
-filter = ['*.*', '!mysql.*', '!sys.*', '!INFORMATION_SCHEMA.*', '!PERFORMANCE_SCHEMA.*', '!METRICS_SCHEMA.*', '!INSPECTION_SCHEMA.*']
 [tidb]
 # Information of the target cluster
 host = "127.0.0.1"
