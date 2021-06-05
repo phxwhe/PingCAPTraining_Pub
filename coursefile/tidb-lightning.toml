@@ -26,7 +26,7 @@ separator = ','
 delimiter = '"'
 # Whether the CSV files contain a header.
 # If `header` is true, the first line will be skipped.
-header = true
+header = false
 # Whether the CSV contains any NULL value.
 # If `not-null` is true, all columns from CSV cannot be NULL.
 not-null = false
